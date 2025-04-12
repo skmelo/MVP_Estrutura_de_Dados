@@ -1,0 +1,105 @@
+{
+  "entities": [
+    {
+      "name": "Evento",
+      "attributes": [
+        { "name": "nu_notificacao", "type": "string", "pk": true },
+        { "name": "dt_notificacao", "type": "date" },
+        { "name": "dt_recebimento_notificacao", "type": "date" },
+        { "name": "ds_situacao_notificacao", "type": "string" },
+        { "name": "dt_desfecho", "type": "date" },
+        { "name": "ds_atendimento_medico", "type": "string" },
+        { "name": "dt_investigacao", "type": "date" },
+        { "name": "ds_evolucao_caso", "type": "string" },
+        { "name": "ds_evento_adverso", "type": "string" },
+        { "name": "ds_casualidade", "type": "string" },
+        { "name": "ds_conduta", "type": "string" },
+        { "name": "ds_diagnostico", "type": "string" },
+        { "name": "dt_encerramento", "type": "date" },
+        { "name": "ds_encerramento_grave", "type": "string" },
+        { "name": "ds_tipo_encerramento", "type": "string" },
+        { "name": "ds_class_gravidade_ea", "type": "string" },
+        { "name": "ds_reacao_ea", "type": "string" },
+        { "name": "ds_dia_duracao_ea", "type": "string" }
+      ]
+    },
+    {
+      "name": "Vacina",
+      "attributes": [
+        { "name": "id_vacina", "type": "int", "pk": true },
+        { "name": "ds_nome_fabricante", "type": "string" },
+        { "name": "ds_estrategia_imuno", "type": "string" },
+        { "name": "dt_aplicacao_imuno", "type": "date" },
+        { "name": "ds_relacao_imuno", "type": "string" },
+        { "name": "ds_lote_imuno", "type": "string" },
+        { "name": "ds_dose_imuno", "type": "string" },
+        { "name": "ds_imuno", "type": "string" },
+        { "name": "co_imuno", "type": "string" }
+      ]
+    },
+    {
+      "name": "Medicamento",
+      "attributes": [
+        { "name": "id_medicamento", "type": "int", "pk": true },
+        { "name": "ds_medicamento_uso", "type": "string" },
+        { "name": "ds_relacao_medicamento", "type": "string" },
+        { "name": "ds_medicamento", "type": "string" }
+      ]
+    },
+    {
+      "name": "Pessoa",
+      "attributes": [
+        { "name": "id_pessoa", "type": "int", "pk": true },
+        { "name": "ds_sexo", "type": "string" },
+        { "name": "nu_mes_gestante", "type": "int" },
+        { "name": "ds_mulher_amamentando", "type": "string" },
+        { "name": "ds_profissional_seguranca", "type": "string" },
+        { "name": "ds_estrangeiro", "type": "string" },
+        { "name": "st_comunidade_tradicional", "type": "string" },
+        { "name": "ds_raca_cor_mae", "type": "string" },
+        { "name": "ds_gestante", "type": "string" },
+        { "name": "nu_idade", "type": "int" },
+        { "name": "ds_raca_cor", "type": "string" },
+        { "name": "ds_profissional_saude", "type": "string" },
+        { "name": "ds_doencas_pre_existentes", "type": "string" }
+      ]
+    },
+    {
+      "name": "Localidade",
+      "attributes": [
+        { "name": "id_localidade", "type": "int", "pk": true },
+        { "name": "no_estado", "type": "string" },
+        { "name": "no_municipio", "type": "string" },
+        { "name": "no_mun_notificacao", "type": "string" },
+        { "name": "no_estado_notificacao", "type": "string" },
+        { "name": "ds_tipo_atendimento", "type": "string" }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "name": "EventoVacina",
+      "from": "Evento",
+      "to": "Vacina",
+      "cardinality": "1:N"
+    },
+    {
+      "name": "EventoMedicamento",
+      "from": "Evento",
+      "to": "Medicamento",
+      "cardinality": "1:N"
+    },
+    {
+      "name": "EventoPessoa",
+      "from": "Evento",
+      "to": "Pessoa",
+      "cardinality": "1:1"
+    },
+    {
+      "name": "EventoLocalidade",
+      "from": "Evento",
+      "to": "Localidade",
+      "cardinality": "1:1"
+    }
+  ]
+}
